@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: $small-font;
+    background-color: $theme-color;
+    color: $text-color;
+}
+
+header {
+    margin: 0;
+    height: 10vh;
+    @include logo-text;
+    font-size: $large-font;
+    padding: 2px;
+    @include dark-block;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    margin: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    height: 5vh;
+    @include logo-text;
+    font-size: $small-font;
+    @include dark-block;
+    padding: 3px;
+}

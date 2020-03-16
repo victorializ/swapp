@@ -1,0 +1,16 @@
+.filter {
+    .dropdowns {
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        select {
+            margin: 5px;
+        }
+    }
+    .caption {
+        font-size: medium;
+        margin-bottom: 2px;
+        margin-bottom: 5px;
+    }
+}

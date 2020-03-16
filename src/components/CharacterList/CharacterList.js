@@ -1,21 +1,19 @@
 import React from 'react';
 
 import ListItem from './ListItem';
+import Loader from '../Loader';
 import { useCharacter } from '../../hooks';
 
 function CharacterList() {
     const [ characters, loading, error ] = useCharacter();
-    return <>
-        {
-            error ? <p>{error}</p> : 
-            <>
-                <ol>
-                    {characters.map(character => <ListItem key={character.name} {...character} />)}
-                </ol>
-                { loading && <p>Loading...</p> }
-            </>
-        }
-    </>
+    return (
+        <div className="character-list">
+            <ol>
+                {characters.map(character => <ListItem key={character.name} {...character} />)}
+            </ol>
+            <Loader loading={loading} />
+        </div>
+    )
 }
 
 export { CharacterList };

@@ -5,10 +5,10 @@ import CharacterList from '../../components/CharacterList';
 
 function Main() {
   return (
-    <section>
+    <div className="main">
       <Filter />
       <CharacterList />
-    </section>
+    </div>
   );
 }
 
