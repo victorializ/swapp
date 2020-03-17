@@ -1,8 +1,13 @@
 import React from 'react';
 
-function Loader({loading}) {
+import styles from './styles.module.scss';
+
+function Loader({ loading }) {
     return(
-        loading && <p>Loading...</p>
+        loading && 
+            <p className={styles.loading}>
+                Loading...
+            </p>
     )
 };
 

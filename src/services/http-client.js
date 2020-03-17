@@ -22,4 +22,8 @@ const getCharacters = async url => {
   return { data: { results, next: data?.next } };
 }
 
-export { get, getCharacters, BASEURL };
+export { 
+  get, 
+  getCharacters, 
+  BASEURL 
+};

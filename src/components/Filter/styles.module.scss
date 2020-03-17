@@ -1,0 +1,19 @@
+@import '../../assets/variables.scss';
+
+.filter {
+    height: 20vh;
+    width: 100vw;
+    border-bottom: $dark-border;
+    background-color: $dark-theme-color;
+    @include centered-container;
+    p {
+        margin: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .filter {
+        height: 40vh;
+        flex-direction: column;
+    }
+}

@@ -6,7 +6,7 @@ const useRequest = (initialUrl, initialState = [], get = axiousGet) => {
   const [data, setData] = useState(initialState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +28,7 @@ const useRequest = (initialUrl, initialState = [], get = axiousGet) => {
     if(!initialState.length) {
       fetchData();
     }
-  }, []);
+  }, [initialState.length, initialUrl, get]);
   return [ data, loading, error ];
 };
 

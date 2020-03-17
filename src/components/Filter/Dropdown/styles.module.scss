@@ -1,0 +1,11 @@
+@import '../../../assets/variables.scss';
+
+.dropdown {
+    @include centered-container;
+    flex-direction: column;
+    margin: 0 7px;
+}
+
+.caption { 
+    @include caption;
+}

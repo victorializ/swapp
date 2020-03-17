@@ -1,17 +1,30 @@
 import React from 'react';
-import { useFilter } from '../../hooks';
+
 import Dropdown from './Dropdown';
-import Range from './Range';
+import YearRange from './YearRange';
+import { useFilter } from '../../hooks';
+
+import styles from './styles.module.scss';
 
 function Filter() {
-    const { setFilm, setSpacies, options } = useFilter();
+    const { setFilm, setSpecies, options, films, species } = useFilter();
     return (
-        <div className="filter">
-            <Range caption="select birth year range" />
-            <div className="dropdowns">
-                <Dropdown name="films" caption="select episode" setValue={setFilm} options={options.films}/>
-                <Dropdown name="species" caption="select character spacies" setValue={setSpacies} options={options.spacies} />
-            </div>
+        <div className={styles.filter}>
+            <YearRange caption="Select birth year range" />
+            <Dropdown 
+                name="films" 
+                caption="Select episode" 
+                value={films}
+                setValue={setFilm} 
+                options={options.films}
+            />
+            <Dropdown 
+                name="species" 
+                caption="Select character species" 
+                value={species}
+                setValue={setSpecies} 
+                options={options.species} 
+            />
         </div>
     )
 }

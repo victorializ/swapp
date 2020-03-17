@@ -3,25 +3,33 @@ import { useParams } from 'react-router-dom';
 
 import { useCharacter } from '../../hooks';
 
+import styles from './styles.module.scss';
+
 function CharacterDetails() {
     const { name } = useParams();
     const [ characters ] = useCharacter();
-    const { birthYear, species, films } = characters?.find(character => character.name === name);
+    const character = characters?.find(character => character.name === name);
     
     return (
-        <div className="details">
+        <div className={styles.details}>
             <h1>{name}</h1>
-            <p className="date">Year of birth: {birthYear}</p>
-            <div className="species">
+            <p className={styles.date}>
+                Year of birth: {character?.birthYear}
+            </p>
+            <div className={styles.species}>
                 <p>Species:</p>
                 <ul>
-                    { species.map(species => <li key={species}>{species}</li>) }
+                    { 
+                        character?.species.map(species => 
+                            <li key={species}>{species}</li>) 
+                    }
                 </ul>
             </div>
-            <div className="films">
+            <div className={styles.films}>
                 <p>Films</p>
                 <ul>
-                    { films.map(film => <li key={film}>{film}</li>) }
+                    { character?.films.map(film => 
+                        <li key={film}>{film}</li>) }
                 </ul>
             </div>
         </div>

@@ -1,23 +1,45 @@
 import React from 'react';
 
 import Loader from '../../Loader';
+import ErrorHandler from '../../ErrorHandler';
 
-function Dropdown({name, caption, setValue, options}) {
-    const [ data, loading ] = options;
-    const onChange = ({target: {value}}) => setValue(value);
+import styles from './styles.module.scss';
+
+function Dropdown({ name, caption, value, setValue, options }) {
+
+    const [ data, loading, error ] = options;
+
     return (
-        <div>
-            <p className="caption">{caption}</p>
-            <Loader loading={loading} />
-            { loading ||
-                <select id={name} onChange={onChange}>
-                    <option value="any">any</option>
-                    { 
-                        data.map(element => <option key={element.url} value={element.name || element.title}>
-                            {element.name || element.title}
-                        </option>) 
-                    }
-                </select>
+        <div className={styles.dropdown}>
+            {error ? <ErrorHandler error = { error } /> :
+                <>
+                    <Loader loading={loading} />
+                    <label 
+                        htmlFor={name} 
+                        className={styles.caption}
+                    >
+                        {caption}
+                    </label>
+                    <select 
+                        id={name} 
+                        value={value}
+                        onChange={({target: {value}}) => setValue(value)}
+                    >
+                        <option value="any">
+                            ---
+                        </option>
+                        { 
+                            data.map(element => 
+                                <option 
+                                    key={element.url} 
+                                    value={element.name || element.title}
+                                >
+                                    {element.name || element.title}
+                                </option>
+                            ) 
+                        }
+                    </select>
+                </>
             }
         </div>
     )

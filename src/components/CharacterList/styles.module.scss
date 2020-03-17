@@ -1,0 +1,24 @@
+@import '../../assets/variables.scss';
+
+.list {
+    @include centered-container;
+    flex-direction: column;
+    height: 55vh;
+    width: 100vw;
+    ol {
+        padding: 0;
+        width: 100vw;
+        height: 50vh;
+        overflow: auto;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 800px) {
+    .list {
+        height: 45vh;
+    }
+}

@@ -1,12 +1,17 @@
-$theme-color:  #272b30;
+$theme-color: #272b30;
 $dark-theme-color: #1c1e22;
-$text-color: #c8c8c8;
 $white-theme-color: #f5f5f5;
+
+$yellow: #ffe300;
+$main-font-color: #c8c8c8;
+$grey-font-color: #3a3f44;
+$error-color: red;
+
 $dark-border: 1px solid rgba(0,0,0,.6);
-$light-border: 1px solid #ccc;
+$white-border: 1px solid #ccc;
 
 @mixin logo-text {
-    color: #ffe300;
+    color: $yellow;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-align: center;
 }
@@ -17,11 +22,25 @@ $light-border: 1px solid #ccc;
 }
 
 @mixin white-block {
-    border: 1px solid #ccc;
+    border: $white-border;
     border-radius: 4px;
     background-color: $white-theme-color;
 }
 
-$large-font: 7vh;
-$middle-font: 5vh;
-$small-font: 2vh;
+@mixin centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin caption {
+    text-align: center;
+    font-size: $middle-font;
+    margin-bottom: 2px;
+    margin-bottom: 5px;
+}
+
+$large-font: 2.5em;
+$big-font: 1.5em;
+$middle-font: 1em;
+$small-font: 0.5em;

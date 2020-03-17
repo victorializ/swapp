@@ -6,18 +6,18 @@ const FilterContext = createContext([ {}, () => {}, {} ]);
 
 const initialState = {
   films: 'any',
-  spacies: 'any',
+  species: 'any',
   birthYear: { min: 'any', max: 'any'}
 };
 
 const FilterProvider = ({ children }) => {
   const [ filter, setFilter ] = useState(initialState);
   const filmsOptions = useRequest('films');
-  const spaciesOptions = useRequest('species');
+  const speciesOptions = useRequest('species');
 
   return (
     <FilterContext.Provider value={[filter, setFilter, 
-      {films: filmsOptions, spacies: spaciesOptions}]}>
+      {films: filmsOptions, species: speciesOptions}]}>
       { children }
     </FilterContext.Provider>);
 };

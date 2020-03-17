@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useCallback } from 'react';
 
 import { useRequest } from '../hooks';
 import { getCharacters } from '../services/http-client';
@@ -10,7 +10,8 @@ const useCharacter = () => {
 }
 
 const useCharacterRequest = inititalData => {
-  const [ data, loading, error ] = useRequest('people', inititalData, getCharacters);
+  const fetchCharacters = useCallback(getCharacters);
+  const [ data, loading, error ] = useRequest('people', inititalData, fetchCharacters);
   return [ data, loading, error ];
 }
 

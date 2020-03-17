@@ -7,7 +7,9 @@ const CharacterProvider = ({ children }) => {
   const [ state, setState ] = useState([]);
   const [ data, loading, error ] = useCharacterRequest(state);
 
-  useEffect(() => setState(data), [data]);
+  useEffect(() => {
+    setState(data)
+  }, [data]);
 
   return (
     <CharacterContext.Provider value={[data, loading, error]}>

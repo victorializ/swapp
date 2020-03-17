@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <header>
-        Star Wars
+        SWAPP
       </header>
       <section>
         <CharacterProvider>

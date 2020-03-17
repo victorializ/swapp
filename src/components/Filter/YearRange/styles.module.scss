@@ -1,0 +1,28 @@
+@import '../../../assets/variables.scss';
+
+.range {
+    font-size: $middle-font;
+    @include centered-container;
+    flex-direction: column;
+    p {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+}
+
+.inputs {
+    display: flex;
+}
+
+.input {
+    label {
+        margin: 0 5px;
+    }
+    select {
+        margin-right: 5px;
+    }
+}
+
+.caption {
+    @include caption;
+}

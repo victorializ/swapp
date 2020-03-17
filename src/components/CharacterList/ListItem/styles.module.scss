@@ -1,0 +1,15 @@
+@import '../../../assets/variables.scss';
+
+.listItem {
+    width: 30vw;
+    @include dark-block;
+    font-size: medium;
+    margin: 5px;
+    padding: 10px;
+}
+
+@media (max-width: 800px) {
+    .listItem {
+        width: 80vw;
+    }
+}
