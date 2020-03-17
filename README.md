@@ -3,7 +3,7 @@ Simple interface for SWAPI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Click to see the demo: https://swapp-11045.firebaseapp.com/
+Click to see the demo: https://swapp-11045.web.app
 
 Run in the project directory:
 
