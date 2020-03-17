@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from './pages/Main';
 import Details from './pages/Details';
-import { CharacterProvider } from './context/CharacterContext'; 
+import { DataProvider } from './context/DataContext'; 
 import { FilterProvider } from './context/FilterContext';
 
 import './assets/common.scss';
@@ -15,16 +15,16 @@ function App() {
         SWAPP
       </header>
       <section>
-        <CharacterProvider>
+        <DataProvider>
           <FilterProvider>
-            <Router>
-              <Switch>
-                <Route exact path='/' component={Main} />
-                <Route path='/character/:name' component={Details} />
-              </Switch>
-            </Router>
+              <Router>
+                <Switch>
+                  <Route exact path='/' component={Main} />
+                  <Route path='/character/:name' component={Details} />
+                </Switch>
+              </Router>
           </FilterProvider>
-        </CharacterProvider>
+        </DataProvider>
       </section>
       <footer>
         <q>may the force be with you</q>

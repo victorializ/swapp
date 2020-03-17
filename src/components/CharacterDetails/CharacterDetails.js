@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useCharacter } from '../../hooks';
+import { DataContext } from '../../context/DataContext';
 
 import styles from './styles.module.scss';
 
 function CharacterDetails() {
     const { name } = useParams();
-    const [ characters ] = useCharacter();
+    const { characters: [ characters ] } = useContext(DataContext);
     const character = characters?.find(character => character.name === name);
     
     return (

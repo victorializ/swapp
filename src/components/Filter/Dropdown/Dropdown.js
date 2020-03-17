@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 function Dropdown({ name, caption, value, setValue, options }) {
 
     const [ data, loading, error ] = options;
-
+    
     return (
         <div className={styles.dropdown}>
             {error ? <ErrorHandler error = { error } /> :
@@ -29,7 +29,7 @@ function Dropdown({ name, caption, value, setValue, options }) {
                             ---
                         </option>
                         { 
-                            data.map(element => 
+                            data?.map(element => 
                                 <option 
                                     key={element.url} 
                                     value={element.name || element.title}

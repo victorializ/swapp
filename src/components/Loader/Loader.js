@@ -4,10 +4,11 @@ import styles from './styles.module.scss';
 
 function Loader({ loading }) {
     return(
-        loading && 
+        loading ? 
             <p className={styles.loading}>
                 Loading...
-            </p>
+            </p> :
+            null
     )
 };
 

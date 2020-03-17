@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Dropdown from './Dropdown';
 import YearRange from './YearRange';
 import { useFilter } from '../../hooks';
+import { DataContext } from '../../context/DataContext';
 
 import styles from './styles.module.scss';
 
 function Filter() {
-    const { setFilm, setSpecies, options, films, species } = useFilter();
+    const { setFilm, setSpecies, films, species } = useFilter();
+    const options = useContext(DataContext);
+    
     return (
         <div className={styles.filter}>
             <YearRange caption="Select birth year range" />

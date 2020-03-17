@@ -4,10 +4,11 @@ import { FilterContext } from '../context/FilterContext';
 import { 
     birthYearToNumber, 
     isBirthYearInRange, 
-    isBirthYearInDefaultRange } from '../services/utils';
+    isBirthYearInDefaultRange 
+} from '../services/utils';
 
 const useFilter = () => {
-    const [ state, setState, options ] = useContext(FilterContext);
+    const [ state, setState ] = useContext(FilterContext);
 
     const setFilm = films => {
         setState(prevState => ({...prevState, films}));
@@ -39,7 +40,6 @@ const useFilter = () => {
     };
 
     return { 
-        options, 
         films: state.films, 
         setFilm, 
         species: state.species, 

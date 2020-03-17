@@ -1,7 +1,5 @@
 import React, { useState, createContext } from 'react';
 
-import { useRequest } from '../hooks';
-
 const FilterContext = createContext([ {}, () => {}, {} ]);
 
 const initialState = {
@@ -12,12 +10,9 @@ const initialState = {
 
 const FilterProvider = ({ children }) => {
   const [ filter, setFilter ] = useState(initialState);
-  const filmsOptions = useRequest('films');
-  const speciesOptions = useRequest('species');
 
   return (
-    <FilterContext.Provider value={[filter, setFilter, 
-      {films: filmsOptions, species: speciesOptions}]}>
+    <FilterContext.Provider value={[filter, setFilter]}>
       { children }
     </FilterContext.Provider>);
 };
