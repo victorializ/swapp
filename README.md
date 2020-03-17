@@ -8,3 +8,5 @@ Run in the project directory:
 ### `npm start`
 
 To run this app in development mode.
+
+![](screens/screen.jpg)
