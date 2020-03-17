@@ -11,7 +11,7 @@ To run this app in development mode.
 
 ## Filters
 
-![](screens/screen1.png)
+![](screens/screen2.png)
 
 #
 
