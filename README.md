@@ -9,4 +9,12 @@ Run in the project directory:
 
 To run this app in development mode.
 
+## Filters
+
+![](screens/screen1.png)
+
+#
+
+## Character details
+
 ![](screens/screen.png)
