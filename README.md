@@ -9,4 +9,4 @@ Run in the project directory:
 
 To run this app in development mode.
 
-![](screens/screen.jpg)
+![](screens/screen.png)
