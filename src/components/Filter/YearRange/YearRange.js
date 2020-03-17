@@ -19,7 +19,7 @@ function YearRange({ caption }) {
 }
 
 function DataInput({ name, caption }) {
-    const { setBirthYearRange, birthYear } = useFilter();
+    const { setBirthYearRange } = useFilter();
     const [ value, setValue ] = useState('');
     const [ era, setEra ] = useState('BBY');
 
@@ -30,7 +30,6 @@ function DataInput({ name, caption }) {
             </label>
             <input 
                 type="number" 
-                value={birthYear[name]}
                 id={name} name={name} 
                 min={0} max={1000} 
                 onChange={({target}) => {

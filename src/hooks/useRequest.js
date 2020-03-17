@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { get as axiousGet, BASEURL } from '../services/http-client';
+import { get as axiousGet, BASEURL, getCharacters } from '../services/http-client';
 
-const useRequest = (initialUrl, initialState = [], get = axiousGet) => {
+const useRequest = (initialUrl, initialState = []) => {
 
   const [data, setData] = useState(initialState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
   useEffect(() => {
+    const get = initialUrl === 'people' ? getCharacters : axiousGet;
     const fetchData = async () => {
       try {
         let next = `${BASEURL}${initialUrl}/?format=json`;
@@ -28,7 +29,7 @@ const useRequest = (initialUrl, initialState = [], get = axiousGet) => {
     if(!initialState.length) {
       fetchData();
     }
-  }, [initialState.length, initialUrl, get]);
+  }, [initialState.length, initialUrl ]);
   return [ data, loading, error ];
 };
 
