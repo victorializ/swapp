@@ -13,8 +13,6 @@ To run this app in development mode.
 
 ![](screens/screen2.png)
 
-#
-
 ## Character details
 
 ![](screens/screen.png)
