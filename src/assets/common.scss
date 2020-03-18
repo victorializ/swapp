@@ -53,14 +53,14 @@ select, input {
     border-radius: .5em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     header {
         height: 10vh;
         padding-top: 3vh;
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     section {
         height: 85vh;
         padding-top: 0;

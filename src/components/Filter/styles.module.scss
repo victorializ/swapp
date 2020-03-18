@@ -8,7 +8,7 @@
     @include centered-container;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .filter {
         height: 40vh;
         flex-direction: column;
