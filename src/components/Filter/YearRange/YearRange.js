@@ -20,7 +20,7 @@ function YearRange({ caption }) {
 
 function DataInput({ name, caption }) {
     const { setBirthYearRange, birthYear } = useFilter();
-    console.log(birthYear[name].era);
+    
     return (
         <div className={styles.input}>
             <label htmlFor={name}>
