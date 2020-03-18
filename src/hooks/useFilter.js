@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { FilterContext } from '../context/FilterContext';
 import { matchFilm,
     matchBirthYear,
-    matchSpecies } from '../services/utils';
+    matchSpecies } from '../services/filter';
 
 const useFilter = () => {
     const [ state, setState ] = useContext(FilterContext);
@@ -33,7 +33,7 @@ const useFilter = () => {
                 }
             }
         }));
-    }
+    };
 
     const match = (films, species, birthYear) => {
         const isFilmMatches = matchFilm(films, state.films);
@@ -51,10 +51,6 @@ const useFilter = () => {
         setBirthYearRange, 
         match
     };
-}
+};
 
 export { useFilter };
-
-
-
-

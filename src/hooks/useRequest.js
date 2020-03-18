@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import { get, BASEURL } from '../services/http-client';
 
 const useRequest = (initialUrl, initialState = []) => {
-
-  const [data, setData] = useState(initialState);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [ data, setData ] = useState(initialState);
+  const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState(null);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +26,7 @@ const useRequest = (initialUrl, initialState = []) => {
     };
     fetchData();
   }, [ initialUrl ]);
+
   return [ data, loading, error ];
 };
 
