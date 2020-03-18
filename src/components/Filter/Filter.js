@@ -8,7 +8,8 @@ import { DataContext } from '../../context/DataContext';
 import styles from './styles.module.scss';
 
 function Filter() {
-    const { setFilm, setSpecies, films, species } = useFilter();
+    const { setFilm, setSpecies, 
+        films, species } = useFilter();
     const options = useContext(DataContext);
     
     return (
@@ -29,7 +30,7 @@ function Filter() {
                 options={options.species} 
             />
         </div>
-    )
+    );
 }
 
 export { Filter };

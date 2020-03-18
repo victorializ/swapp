@@ -29,19 +29,22 @@ function DataInput({ name, caption }) {
             <input id={name} name={name} 
                 value={birthYear[name].year}
                 onChange={({target}) => {
-                    setBirthYearRange(name, target.value, birthYear[name].era);
+                    const era = birthYear[name].era;
+                    setBirthYearRange(name, target.value, era);
                 }}
             />
             <select 
-                name="from" 
+                name={name}
                 onChange={({target}) => {
-                    setBirthYearRange(name, birthYear[name].year, target.value);
+                    const year = birthYear[name].year;
+                    setBirthYearRange(name, year, target.value);
                 }}
             >
                 <option value="BBY">BBY</option>
                 <option value="ABY">ABY</option>
             </select>
         </div>
-    )
+    );
 }
+
 export { YearRange };

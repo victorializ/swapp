@@ -15,11 +15,12 @@ function CharacterList() {
 
     return (
         <div className={styles.list}>
-            {error ? <ErrorHandler error={error} /> :
+            { error ? <ErrorHandler error={error} /> :
                 <>
                     <ol>
                         { characters?.map(character => 
-                            <ListItem key={character.name} {...character} />) }
+                            <ListItem key={character.name} {...character} />) 
+                        }
                     </ol>
                     <Loader loading={loading} />
                 </>

@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { DataContext } from '../../context/DataContext';
+import { getCharacter } from '../../services/characters';
 
 import styles from './styles.module.scss';
 
 function CharacterDetails() {
     const { name } = useParams();
     const { characters: [ characters ] } = useContext(DataContext);
-    const character = characters?.find(character => character.name === name);
+    const character = getCharacter(name, characters);
     
     return (
         <div className={styles.details}>
@@ -19,9 +20,10 @@ function CharacterDetails() {
             <div className={styles.species}>
                 <p>Species:</p>
                 <ul>
-                    { 
-                        character?.species.map(species => 
-                            <li key={species}>{species}</li>) 
+                    { character?.species.map(species => 
+                        <li key={species}>
+                            {species}
+                        </li>) 
                     }
                 </ul>
             </div>
@@ -29,7 +31,10 @@ function CharacterDetails() {
                 <p>Films</p>
                 <ul>
                     { character?.films.map(film => 
-                        <li key={film}>{film}</li>) }
+                        <li key={film}>
+                            {film}
+                        </li>) 
+                    }
                 </ul>
             </div>
         </div>

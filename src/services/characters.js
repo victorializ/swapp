@@ -2,7 +2,9 @@ const isDataLoaded = (data, loading, error) => {
     return data.length && !loading && !error;
 };
 
-const matchUrlFunc = url => value => value.url === url;
+const matchUrlFunc = url => value => {
+    return value.url === url;
+};
 
 const getFilmTitleFunc = films => url => {
     const matchUrl = matchUrlFunc(url);
@@ -39,7 +41,17 @@ const formatCharacters = (characters, films, species) => {
     return formatedCharacters;
 };
 
+const matchCharacterFunc = name => character => {
+    return character.name === name;
+};
+
+const getCharacter = (name, characters) => {
+    const matchCharacter = matchCharacterFunc(name);
+    return characters?.find(matchCharacter);
+};
+
 export {
+    getCharacter,
     isDataLoaded,
     formatCharacters
 };

@@ -5,8 +5,10 @@ import ErrorHandler from '../../ErrorHandler';
 
 import styles from './styles.module.scss';
 
-function Dropdown({ name, caption, value, setValue, options }) {
-
+function Dropdown({ 
+    name, caption, 
+    value, setValue, 
+    options }) {
     const [ data, loading, error ] = options;
     
     return (
@@ -23,7 +25,9 @@ function Dropdown({ name, caption, value, setValue, options }) {
                     <select 
                         id={name} 
                         value={value}
-                        onChange={({target: {value}}) => setValue(value)}
+                        onChange={({target: {value}}) => {
+                            setValue(value)
+                        }}
                     >
                         <option value=''>
                             ---
