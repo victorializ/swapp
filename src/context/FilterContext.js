@@ -1,16 +1,24 @@
 import React, { useState, createContext } from 'react';
 
-const FilterContext = createContext([ {}, () => {}, {} ]);
+const FilterContext = createContext([ {}, () => {} ]);
 
 const initialState = {
-  films: 'any',
-  species: 'any',
-  birthYear: { min: 'any', max: 'any'}
+  films: '',
+  species: '',
+  birthYear: { 
+    min: {
+      year: '', 
+      era: 'BBY'
+    }, 
+    max: {
+      year: '', 
+      era: 'BBY'
+    }
+  }
 };
 
 const FilterProvider = ({ children }) => {
   const [ filter, setFilter ] = useState(initialState);
-
   return (
     <FilterContext.Provider value={[filter, setFilter]}>
       { children }

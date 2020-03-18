@@ -25,7 +25,7 @@ function Dropdown({ name, caption, value, setValue, options }) {
                         value={value}
                         onChange={({target: {value}}) => setValue(value)}
                     >
-                        <option value="any">
+                        <option value=''>
                             ---
                         </option>
                         { 

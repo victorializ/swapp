@@ -1,20 +1,41 @@
-const birthYearToNumber = birthYear => {
-    const year = birthYear.match(/[0-9]+/g)[0];
-    const era = birthYear.match(/[A-Za-z]+/g)[0];
+const birthYearToNumber = ({ year, era }) => {
     return era === 'BBY' ? year * (-1) : year;
 }
 
-const isBirthYearInRange = (birthYear, min, max) => {
-    const year = birthYearToNumber(birthYear);
-    const moreThenMin = min === 'any' || year >= min;
-    const lessThenMax = max === 'any' || year <= max;
-    return moreThenMin && lessThenMax;
+const parseBirthYearString = birthYear => {
+    const year = birthYear.match(/[0-9]+/g)[0];
+    const era = birthYear.match(/[A-Za-z]+/g)[0];
+    return { year, era };
 }
 
-const isBirthYearInDefaultRange = (min, max) => min === 'any' && max === 'any';
+const isBirthYearRangeDefault = ({ min, max }) => !min.year && !max.year;
+
+const isBirthYearInRange = (birthYear, { min, max }) => {
+    const year = birthYearToNumber(parseBirthYearString(birthYear));
+    const minYear = birthYearToNumber(min);
+    const maxYear = birthYearToNumber(max);
+    return year >= minYear && year <= maxYear;
+}
+
+const isDataLoaded = (data, loading, error) => data.length && !loading && !error;
+
+const matchFilm = (films, selectedFilm) => {
+    return !selectedFilm || films.includes(selectedFilm);
+}
+
+const matchSpecies = (species, selectedSpecies) => {
+    return !selectedSpecies || species.includes(selectedSpecies);
+}
+
+const matchBirthYear = (birthYear, birthYearRange)  => {
+    console.log(isBirthYearRangeDefault(birthYearRange));
+    return isBirthYearRangeDefault(birthYearRange) || 
+        (birthYear !== 'unknown' && isBirthYearInRange(birthYear, birthYearRange));
+} 
 
 export { 
-    birthYearToNumber, 
-    isBirthYearInRange, 
-    isBirthYearInDefaultRange 
+    matchFilm,
+    matchSpecies,
+    matchBirthYear,
+    isDataLoaded
 };

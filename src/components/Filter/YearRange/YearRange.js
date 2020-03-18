@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useFilter } from '../../../hooks';
 
@@ -19,29 +19,23 @@ function YearRange({ caption }) {
 }
 
 function DataInput({ name, caption }) {
-    const { setBirthYearRange } = useFilter();
-    const [ value, setValue ] = useState('');
-    const [ era, setEra ] = useState('BBY');
-
+    const { setBirthYearRange, birthYear } = useFilter();
+    console.log(birthYear[name].era);
     return (
         <div className={styles.input}>
             <label htmlFor={name}>
                 {caption}
             </label>
-            <input 
-                type="number" 
-                id={name} name={name} 
-                min={0} max={1000} 
+            <input id={name} name={name} 
+                value={birthYear[name].year}
                 onChange={({target}) => {
-                    setValue(target.value);
-                    setBirthYearRange(name, `${value}${era}`);
+                    setBirthYearRange(name, target.value, birthYear[name].era);
                 }}
             />
             <select 
                 name="from" 
                 onChange={({target}) => {
-                    setEra(target.value);
-                    setBirthYearRange(name, `${value}${era}`);
+                    setBirthYearRange(name, birthYear[name].year, target.value);
                 }}
             >
                 <option value="BBY">BBY</option>

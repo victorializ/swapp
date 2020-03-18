@@ -1,42 +1,45 @@
 import { useContext } from 'react';
 
 import { FilterContext } from '../context/FilterContext';
-import { 
-    birthYearToNumber, 
-    isBirthYearInRange, 
-    isBirthYearInDefaultRange 
-} from '../services/utils';
+import { matchFilm,
+    matchBirthYear,
+    matchSpecies } from '../services/utils';
 
 const useFilter = () => {
     const [ state, setState ] = useContext(FilterContext);
 
     const setFilm = films => {
-        setState(prevState => ({...prevState, films}));
+        setState(prevState => ({
+            ...prevState, 
+            films
+        }));
     };
 
     const setSpecies = species => {
-        setState(prevState => ({...prevState, species}));
+        setState(prevState => ({
+            ...prevState, 
+            species
+        }));
     };
 
-    const setBirthYearRange = (name, value) => {
-        const data = value === 'BBY' || value === 'ABY' ? 'any' : birthYearToNumber(value);
+    const setBirthYearRange = (name, year, era) => {
         setState(prevState => ({
-                ...prevState, 
-                birthYear: {
-                    ...prevState.birthYear, 
-                    [name]: data
+            ...prevState, 
+            birthYear: {
+                ...prevState.birthYear, 
+                [name]: { 
+                    year, 
+                    era 
                 }
-            })
-        );
+            }
+        }));
     }
 
     const match = (films, species, birthYear) => {
-        const matchFilm = state.films === 'any' || films.includes(state.films);
-        const matchSpecies = state.species === 'any' || species.includes(state.species);
-        const matchYear = birthYear === 'unknown' ? 
-            isBirthYearInDefaultRange(state.birthYear.min, state.birthYear.max) :
-            isBirthYearInRange(birthYear, state.birthYear.min, state.birthYear.max);
-        return matchFilm && matchSpecies && matchYear;
+        const isFilmMatches = matchFilm(films, state.films);
+        const isSpeciesMatches = matchSpecies(species, state.species);
+        const isBirthYearMatches = matchBirthYear(birthYear, state.birthYear);
+        return isFilmMatches && isSpeciesMatches && isBirthYearMatches;
     };
 
     return { 

@@ -8,7 +8,11 @@ import { DataContext } from '../../context/DataContext';
 import styles from './styles.module.scss';
 
 function CharacterList() {
-    const { characters: [ characters, loading, error ]} = useContext(DataContext);
+    const { 
+        characters: [ 
+            characters, loading, error 
+        ]} = useContext(DataContext);
+
     return (
         <div className={styles.list}>
             {error ? <ErrorHandler error={error} /> :

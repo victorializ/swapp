@@ -1,14 +1,13 @@
 import React, { useState, createContext, useEffect } from 'react';
 
 import { useRequest } from '../hooks';
+import { isDataLoaded } from '../services/utils';
 
 const initialData = {
   films: [], 
   species: [],
   characters: []
 }
-
-const isDataLoaded = (data, loading, error) => data.length && !loading && !error;
 
 const DataContext = createContext(initialData);
 
@@ -42,14 +41,17 @@ const DataProvider = ({ children }) => {
             films: filmsTitles
           };
       });
-      setState(prevState => ({
-        ...prevState, 
-        characters: [
-          formatedCharacters, 
-          charactersLoading, 
-          charactersError
-        ]
-      }));
+      setState(prevState => {
+        const [ , loading, error ] = prevState.characters;
+        return ({
+          ...prevState, 
+          characters: [
+            formatedCharacters, 
+            loading, 
+            error
+          ]
+        });
+      });
     }
   }, [characters, 
     films, filmsLoading, filmsError, 
@@ -79,14 +81,17 @@ const DataProvider = ({ children }) => {
   }, [species, speciesError, speciesLoading]);
 
   useEffect(() => {
-    setState(prevState => (
-      {...prevState,
+    setState(prevState => {
+      const [ characters ] = prevState.characters;
+      return ({
+        ...prevState,
         characters: [
-          prevState.characters[0],
+          characters,
           charactersLoading,
           charactersError
         ]
-    }));
+      });
+    });
   }, [charactersLoading, charactersError]);
 
   return (
