@@ -6,9 +6,6 @@
     border-bottom: $dark-border;
     background-color: $dark-theme-color;
     @include centered-container;
-    p {
-        margin: 0;
-    }
 }
 
 @media (max-width: 900px) {
