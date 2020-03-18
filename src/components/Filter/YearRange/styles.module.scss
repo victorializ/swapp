@@ -1,12 +1,12 @@
 @import '../../../assets/variables.scss';
 
 .range {
-    font-size: $middle-font;
     @include centered-container;
+    font-size: $middle-font;
     flex-direction: column;
     p {
         margin-top: 0;
-        margin-bottom: 5px;
+        margin-bottom: $middle-space;
     }
 }
 
@@ -16,10 +16,10 @@
 
 .input {
     label {
-        margin: 0 5px;
+        margin: 0 $middle-space;
     }
     select {
-        margin-right: 5px;
+        margin-right: $middle-space;
     }
 }
 

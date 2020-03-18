@@ -1,14 +1,14 @@
 @import '../../../assets/variables.scss';
 
 .listItem {
-    width: 30vw;
     @include dark-block;
-    font-size: medium;
-    margin: 5px;
-    padding: 10px;
+    width: 30vw;
+    font-size: $middle-font;
+    margin: $middle-space;
+    padding: $large-space;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $small-screen-size) {
     .listItem {
         width: 80vw;
     }

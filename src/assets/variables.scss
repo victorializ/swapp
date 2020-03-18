@@ -10,6 +10,17 @@ $error-color: red;
 $dark-border: 1px solid rgba(0,0,0,.6);
 $white-border: 1px solid #ccc;
 
+$large-font: 2.5em;
+$big-font: 1.5em;
+$middle-font: 1em;
+$small-font: 0.5em;
+
+$small-screen-size: 1000px;
+
+$small-space: 2px;
+$middle-space: 5px;
+$large-space: 10px;
+
 @mixin logo-text {
     color: $yellow;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -36,11 +47,6 @@ $white-border: 1px solid #ccc;
 @mixin caption {
     text-align: center;
     font-size: $middle-font;
-    margin-bottom: 2px;
-    margin-bottom: 5px;
+    margin-bottom: $small-space;
+    margin-bottom: $middle-space;
 }
-
-$large-font: 2.5em;
-$big-font: 1.5em;
-$middle-font: 1em;
-$small-font: 0.5em;

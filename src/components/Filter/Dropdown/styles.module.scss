@@ -3,7 +3,7 @@
 .dropdown {
     @include centered-container;
     flex-direction: column;
-    margin: 0 7px;
+    margin: 0 $middle-space;
 }
 
 .caption { 

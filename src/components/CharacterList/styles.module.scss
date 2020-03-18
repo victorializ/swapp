@@ -16,7 +16,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: $small-screen-size) {
     .list {
         height: 45vh;
     }

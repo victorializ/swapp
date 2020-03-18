@@ -1,7 +1,5 @@
 import React, { useState, createContext } from 'react';
 
-const FilterContext = createContext([ {}, () => {} ]);
-
 const initialState = {
   films: '',
   species: '',
@@ -17,8 +15,11 @@ const initialState = {
   }
 };
 
+const FilterContext = createContext([ initialState, () => {} ]);
+
 const FilterProvider = ({ children }) => {
   const [ filter, setFilter ] = useState(initialState);
+  
   return (
     <FilterContext.Provider value={[filter, setFilter]}>
       { children }

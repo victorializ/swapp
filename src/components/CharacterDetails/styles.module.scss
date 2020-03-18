@@ -1,9 +1,9 @@
 @import '../../assets/variables.scss';
 
 .details {
+    @include white-block;
     width: 30vw;
     min-height: 50vh;
-    @include white-block;
     word-break: break-all;
     word-wrap: break-word;
     color: $grey-font-color;
@@ -14,14 +14,19 @@
     }
     h1 {
         @include logo-text;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         border-bottom: $white-border;
         font-size: $big-font;
-        padding: 10px;
+        padding: $large-space;
     }
     ul {
         list-style: none;
         padding: 0;
+    }
+}
+
+@media (max-width: $small-screen-size) {
+    .details {
+        width: 80vw;
     }
 }
 
@@ -39,24 +44,18 @@
     }
     p {
         font-size: bold;
-        padding: 5px;
+        padding: $middle-space;
     }
 }
 
 .films {
     p {
-        margin-bottom: 1px;
+        margin-bottom: $small-space;
     }
     ul {
-        margin-top: 1px;
+        margin-top: $small-space;
     }
     li {
-        padding: 3px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .details {
-        width: 80vw;
+        padding: $small-space;
     }
 }

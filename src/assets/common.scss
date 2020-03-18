@@ -20,27 +20,38 @@ body {
 }
 
 header {
+    @include logo-text;
     height: 20vh;
     padding-top: 10vh;
-    @include logo-text;
     font-size: $large-font;
     background-color: $dark-theme-color;
 }
 
+@media (max-width: $small-screen-size) {
+    header {
+        height: 10vh;
+        padding-top: 3vh;
+    }
+}
+
 section {
+    @include centered-container;
     height: 75vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+}
+
+@media (max-width: $small-screen-size) {
+    section {
+        height: 85vh;
+        padding-top: 0;
+    }
 }
 
 footer {
-    height: 5vh;
     @include logo-text;
-    font-size: $small-font;
     @include dark-block;
-    padding: 1vh
+    height: 5vh;
+    font-size: $small-font;
+    padding: 1vh;
 }
 
 select, input {
@@ -51,18 +62,4 @@ select, input {
     border: $white-border;
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
     border-radius: .5em;
-}
-
-@media (max-width: 1000px) {
-    header {
-        height: 10vh;
-        padding-top: 3vh;
-    }
-}
-
-@media (max-width: 1000px) {
-    section {
-        height: 85vh;
-        padding-top: 0;
-    }
 }
